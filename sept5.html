@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <section class="bg-blue-950 pb-67">
+            <nav class="flex justify-center gap-5 text-white border-b border-gray-500 py-5">
+                <h1 v-if="showAll" class="text-1xl font-normal cursor-pointer">HOME</h1>
+                <h1 v-if="showAll" class="text-1xl font-normal cursor-pointer">SERVICES</h1>
+                <h1 v-if="showAll" class="text-1xl font-normal cursor-pointer">PROJECTS</h1>
+                <h1 v-if="showAll" class="text-1xl font-normal cursor-pointer">ABOUT ME</h1>
+                <h1 v-if="showAll" class="text 1xl font-normal cursor-pointer">CONTACT</h1>
+                <h1 @click="loginBtn" class="text 1xl font-normal cursor-pointer">LOGIN</h1>
+                <h1 @click="logoutBtn" class="text 1xl font-normal cursor-pointer">LOGOUT</h1>
+            </nav>
+
+            <div v-if="reminder" class="flex justify-center mt-25">
+                <div class="shadow-lg w-90 h-60 m-5 mx-3 p-3 bg-amber-100 rounded-md">
+                    <h1 class="flex justify-center font-semibold text-2xl mt-2">REMINDER</h1>
+                    <h1 class="font-normal text-2xl">For Security Purposes in any transaction you must login first for
+                        your comfort and to give you best experience thank you.
+                    </h1>
+                </div>
+            </div>
+            <div v-if="showLoginForm" @click="hideButton" class="inset-0 absolute bg-black brightness-30 opacity-20">
+            </div>
+            <div v-if="showLoginForm" class="absolute top-10 right-32">
+                <form class="bg-gray-100 w-90 h-130 border-gray-200 shadow-xl rounded-lg ">
+                    <p class="text-center font-semibold text-2xl pt-5 text-gray-500">Log-in Form</p>
+                    <div class="flex flex-col mx-10 mt-5 gap-5">
+                        <input v-model="username" type="text" name="" id="" placeholder="Enter username"
+                            class="border-2 rounded-lg border-gray-400 text-xl py-[3px]">
+                        <input v-model="password" type="password" name="" id="" placeholder="Enter password"
+                            class="border-2 rounded-lg border-gray-400 text-xl py-[3px]">
+                        <p class="text-blue-600 cursor-pointer hover:text-blue-400">Forgot password?</p>
+                        <button type="button" @click="confirmLogin"
+                            class="bg-blue-500 text-2xl text-white rounded-lg py-[2px] font-semibold hover:bg-blue-400 transition duration-300 ease-in-out cursor-pointer">Log-in
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <section v-if="showAll">
+                <div class="absolute right-20">
+                    <div class="w-70 h-70 rounded-full absolute mt-25"></div>
+                    <img src="cv2-removebg-preview.png" alt="" class="w-100.0 h-179 relative mr-30 mb-30">
+                </div>
+                <main class="mt-50 mx-20 gap-5">
+                    <div class="text-white">
+                        <h1 class="text-5xl mt-5">I'm April Jean</h1>
+                        <p class="text-5xl mt-3">I'm a Web Developer</p>
+                        <p class="text-5xl mt-3">I'm a Web Designer</p>
+                        <div class="w-140 text-indigo-400">
+                            <hr>
+                        </div>
+                        <div class="mt-15">
+                            <div class="text-white gap-10">
+                                <h1
+                                    class="flex border w-38 gap-2 p-3 bg-blue-900 hover:text-blue-900 hover:bg-white mt-4 rounded-md transition duration-300 ease-in-out cursor-pointer">
+                                    Get in Touch <span><i class="fa-solid fa-arrow-right"></i></span>
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="mt-20">
+                            <div class="flex gap-5 text-3xl">
+                                <h1 class="mt-5 text-3xl"><span class="font-bold">280</span> <span
+                                        class="text-indigo-400 font-bold">+</span> <br> Google Review</h1>
+                                <h1 class="mt-5 text-3xl"><span class="font-bold">15</span> <span
+                                        class="text-blue-400 font-bold">+</span> <br> Years Experience</h1>
+                                <h1 class="mt-5 text-3xl"><span class="font-bold">49</span> <span
+                                        class="text-blue-400 font-bold">+</span> <br> Awward Winning</h1>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </section>
+        </section>
+
+        <section v-if="showAll">
+
+            <section class="">
+                <main class=" flex justify-center mt-20 border-b border-gray-300 pb-5">
+                    <div class="flex gap-20 text-2xl mx-5 font-semibold">
+                        <h1 class="mt-5">logoipsum</h1>
+                        <h1 class="mt-5">LOGOIPSUM</h1>
+                        <h1 class="mt-5">logoipsum</h1>
+                        <h1 class="mt-5">LOGOIPSUM</h1>
+                        <h1 class="mt-5">LOGOIPSUM</h1>
+                    </div>
+                </main>
+                <!-- main2 -->
+                <main class="mx-20">
+                    <div class="grid grid-cols-2">
+                        <div class="mt-20 mx-5">
+                            <h1 class="text-xl font-thin bg-amber-100 w-fit px-5">SERVICES</h1>
+                            <h1
+                                class="text-3xl text-gray-800 bg-linear-65 from-blue-200 w-fit p-5 rounded-lg mt-5 to-indigo-500">
+                                Get a powerful website that <br> delivers results with an all- <br><span>in-one
+                                    solution</span></h1>
+                        </div>
+                        <div class="mx-20 mt-18 rounded-md">
+                            <div class="w-155 flex p-5">
+                                <div>
+                                    <div class="shadow-lg mb-5 p-5 rounded-md flex">
+                                        <div class="h-10 bg-blue-800 p-2 rounded-md w-fit">
+                                            <i class="fa-solid fa-bolt text-xl text-white"></i>
+                                        </div>
+                                        <div>
+                                            <h1 class="font-bold mx-5">Web Design</h1>
+                                            <p class="mx-5">Say goodbye to the hassle of managing multiple providers and
+                                                get
+                                                an
+                                                <br>
+                                                all-in-one website
+                                                solution
+                                                that covers design,development,and <br> content creation
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="shadow-lg mb-5 p-5 rounded-md flex">
+                                        <div class="h-10 bg-blue-800 p-2 rounded-md w-fit">
+                                            <i class="fa-solid fa-palette text-xl text-white"></i>
+                                        </div>
+                                        <div>
+                                            <h1 class="font-bold mx-5">UI/UX Designer</h1>
+                                            <p class="mx-5">Say goodbye to the hassle of managing multiple providers and
+                                                get
+                                                an
+                                                <br>
+                                                all-in-one website
+                                                solution
+                                                that covers design,development,and <br> content creation
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="shadow-lg mb-5 p-5 rounded-md flex">
+                                        <div class="h-10 bg-blue-800 p-2 rounded-md w-fit">
+                                            <i class="fa-solid fa-users-viewfinder text-xl text-white"></i>
+                                        </div>
+                                        <div>
+                                            <h1 class="font-bold mx-5">User Research</h1>
+                                            <p class="mx-5">Say goodbye to the hassle of managing multiple providers and
+                                                get
+                                                an
+                                                <br>
+                                                all-in-one website
+                                                solution
+                                                that covers design,development,and <br> content creation
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <!-- main 3 -->
+                <main class="mt-25 bg-sky-300 pt-20">
+                    <div class="flex justify-center">
+                        <div class="font-bold text-4xl gap-10 ">
+                            <h1>Featured Projects</h1>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2">
+                        <div class="mt-30 mx-30 gap-5 ">
+                            <h1 class="text-xl font-thin bg-amber-100 w-fit px-5 rounded-md shadow-lg gap-5">MY PROCESS
+                            </h1>
+                            <h1
+                                class="text-3xl  text-gray-800 bg-linear-65 from-blue-200 w-fit p-5 shadow-lg rounded-md mt-5">
+                                Transform your website <br> dreams into a reality in just a <br><span> few
+                                    simple steps.</span></h1>
+                            <div class="text-white gap-10">
+                                <h1
+                                    class="flex border w-38 gap-2 p-3 bg-black  hover:text-stone-600 hover:bg-white mt-4 rounded-md transition duration-300 ease-in-out cursor-pointer text-white">
+                                    Get in Touch <span><i class="fa-solid fa-arrow-right"></i></span>
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="mx-20 mt-18 rounded-md">
+                            <div class="w-155 flex p-5 mb-20">
+                                <div>
+                                    <div class="shadow-lg mb-5 p-5 bg-gray-100 rounded-md flex">
+                                        <div class="h-10 bg-blue-800 p-2 rounded-md w-fit">
+                                            <i class="fa-solid fa-arrows-to-circle text-white"></i>
+                                        </div>
+                                        <div>
+                                            <h1 class="font-bold mx-5">Concept</h1>
+                                            <p class="mx-5">Empowering creativity and connection from my website, <br>
+                                                this
+                                                profile
+                                                showcases a vibrant thinker who blends <br> curiosity, humor, and
+                                                insight to
+                                                inspire
+                                                fresh ideas and meaningful digital experiences. <br>
+                                                - Reviewing any existing branding <br>
+                                                - Target audience and competitors research <br>
+                                                - Developing Strategy
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="shadow-lg mb-5 bg-gray-100 p-5 rounded-md flex">
+                                        <div class="h-10 bg-blue-800 p-2 rounded-md w-fit">
+                                            <i class="fa-solid fa-bezier-curve text-white"></i>
+                                        </div>
+                                        <div>
+                                            <h1 class="font-bold mx-5">Design</h1>
+                                            <p class="mx-5">A sleek and expressive design that blends modern aesthetics
+                                                with
+                                                <br>
+                                                personal flair, creating an inviting digital space that reflects <br>
+                                                your
+                                                unique
+                                                voice and vision. <br>
+                                                - Reviewing any existing branding <br>
+                                                - Target audience and competitors research <br>
+                                                - Developing Strategy
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="shadow-lg mb-5 bg-gray-100 p-5 rounded-md flex">
+                                        <div class="h-10 bg-blue-800 p-2 rounded-md w-fit">
+                                            <i class="fa-solid fa-window-maximize text-xl text-white"></i>
+                                        </div>
+                                        <div>
+                                            <h1 class="font-bold mx-5">Development</h1>
+                                            <p class="mx-5">A dynamic showcase of innovation and growth, your
+                                                development
+                                                section highlights your evolving skills, creative <br>problem-solving,
+                                                and
+                                                commitment to building impactful digital experiences. <br>
+                                                - Reviewing any existing branding <br>
+                                                - Target audience and competitors research <br>
+                                                - Developing Strategy
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- resume nga pinataka -->
+
+                <main>
+                    <div class="flex justify-center mt-10 text-3xl font-normal">
+                        <h1 class="bg-amber-100 w-fit p-3 rounded-md shadow-lg">RESUME </h1>
+                    </div>
+                    <div class="flex grid-cols-3">
+                        <div class="m-5 w-80 h-70 text-center p-5 shadow-lg bg-amber-100">
+                            <h1 class="font-semibold text-2xl">Contact Information</h1>
+                            <div class="font-semibold mt-3 font-normal">
+                                <h1>Name: April Jean N. Albolote</h1>
+                                <h1>Address: kapalong Davao DDN</h1>
+                                <h1>Phone Number: +63 9107306379</h1>
+                                <h1>Email: apriljeannojaalbolote@gmail.com</h1>
+                            </div>
+                        </div>
+                        <div class="m-5 w-80 h-70 text-center p-5 shadow-lg bg-amber-100">
+                            <h1 class="font-semibold text-2xl"> Professional Skills</h1>
+                            <div class="font-semibold mt-3 font-normal">
+                                <p><span class="text-2xl font-normal">My skills :Front-end Developer.</span> <br> And
+                                    I'm
+                                    willing to show my uniqueness to be your developer and designer. </p>
+                            </div>
+                        </div>
+                        <div class="m-5 w-80 h-70 text-center p-5 shadow-lg bg-amber-100">
+                            <h1 class="font-semibold text-2xl">EDUCATION</h1>
+                            <div class="font-semibold mt-3 font-normal">
+                                <h1>Graduated from senior high school with a strong foundation <br> in Hummanities and
+                                    Social
+                                    Sciences(HUMSS) <br> developing skills in critical thinking research and
+                                    communication. <br> And I Graduated from Web Developer.
+                                </h1>
+
+                            </div>
+                        </div>
+                        <div class="m-5 w-80 h-70 text-center p-5 shadow-lg bg-amber-100">
+                            <h1 class="font-semibold text-2xl">EXPERIENCE</h1>
+                            <div class="font-semibold mt-3 font-normal">
+                                <h1>Aspiring web developer with a strong passion for coding and web development, seeking
+                                    opportunities to learn and grow in a professional setting.</h1>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+
+                <!-- main4 -->
+                <main class="bg-lime-200">
+                    <div class="flex justify-center mt-20">
+                        <h1 class="text-3xl font-semibold bg-amber-100 rounded-md p-3 mt-5">Praise from Clients</h1>
+                    </div>
+                    <div class="grid grid-cols-3">
+                        <div>
+                            <div class="border border-white rounded-md w-100 h-100 mx-20 mt-25">
+                                <h1 class="flex justify-start mx-3 mt-4 text-2xl"><span
+                                        class="font-semibold">LOGO</span>IPSUM
+                                </h1>
+                                <p class=" font-semibold mx-5 p-3">Our expectations were surpassed <br> by the
+                                    expectational
+                                    web
+                                    design</p>
+                                <p class="mx-5 p-3">Detail and creativity exceeded our expectations during our website
+                                    redesign.
+                                    <br>
+                                    The visually stunning and user-friendly site she produced immediately enhanced <br>
+                                    our
+                                    online
+                                    presence
+                                </p>
+                                <div class="flex items-center ml-3">
+                                    <img src="avatar.jpg" alt="" class="w-15 h-15 ml-5 mr-3 shadow-lg">
+                                    <h1 class="font-semibold">Aaron Rhods</h1>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="border border-white rounded-md w-100 h-100 mt-25">
+                                <h1 class="flex justify-start mx-3 mt-4 text-2xl font-semibold">logoipsum</h1>
+                                <p class=" font-semibold mx-5 p-3">Our expectations were surpassed <br> by the
+                                    expectational
+                                    web
+                                    design</p>
+                                <p class="mx-5 p-3">Detail and creativity exceeded our expectations during our website
+                                    redesign.
+                                    <br>
+                                    The visually stunning and user-friendly site she produced immediately enhanced <br>
+                                    our
+                                    online
+                                    presence
+                                </p>
+                                <div class="flex items-center ml-3">
+                                    <img src="avatar3.jpg" alt="" class="w-15 h-15 ml-5 mr-3 shadow-lg">
+                                    <h1 class="font-semibold">April Jean</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="border border-white rounded-md w-100 h-100 mt-25">
+                                <h1 class="flex justify-start mx-3 mt-4 text-2xl font-semibold"><span
+                                        class="font-semibold">LOGO</span>IPSUM</h1>
+                                <p class=" font-semibold mx-5 p-3">Our expectations were surpassed <br> by the
+                                    expectational
+                                    web
+                                    design</p>
+                                <p class="mx-5 p-3">Detail and creativity exceeded our expectations during our website
+                                    redesign.
+                                    <br>
+                                    The visually stunning and user-friendly site she produced immediately enhanced <br>
+                                    our
+                                    online
+                                    presence
+                                </p>
+                                <div class="flex items-center ml-3">
+                                    <img src="avatar2.jpg" alt="" class="w-15 h-15 ml-5 mr-3 shadow-lg">
+                                    <h1 class="font-semibold">Geo Obero</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- main5 -->
+
+
+                <main class="mx-20 py-10">
+                    <div class="bg-slate-700 shadow-lg">
+                        <h1 class="text-3xl text-center text-white font-bold py-5">Contact Me</h1>
+                        <div class="flex justify-center m-3 mt-18 py-5">
+                            <div class="w-160 h-170 text-white border rounded-md">
+                                <div
+                                    class="font-semibold text-white mt-5 border w-38 hover: cursor-pointer hover:bg-gray-300 p-2 mx-3 mb-5 rounded-md">
+                                    <h1 class="ml-5">GET IN TOUCH</h1>
+                                </div>
+                                <div class=" px-5 w-160 mb-5">
+                                    <h1 class="text-white text-3xl font-normal">Let's Discuss Projects</h1>
+                                    <div class="mt-5">
+                                        <p class="text-white">Get in touch with us for any kind of help. We are here to
+                                            give
+                                            you
+                                            the
+                                            best and also <br>
+                                            here to
+                                            help you to find your projects.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex p-5 gap-3">
+                                    <div>
+                                        <label for="name">First name</label>
+                                        <input type="text" name="name" id="name" placeholder="Name*"
+                                            class="w-70 h-10 border rounded-md">
+                                    </div>
+                                    <div>
+                                        <label for="name">Your Email</label>
+                                        <input type="text" name="name" id="name" placeholder="Email*"
+                                            class="w-70 h-10 border rounded-md">
+                                    </div>
+                                </div>
+                                <div class="p-5">
+                                    <label for="name">Subject</label>
+                                    <input type="text" name="name" id="name" placeholder="Subject*"
+                                        class="w-150 h-10 border rounded-md">
+                                </div>
+                                <div class="mx-5">
+                                    <label for="name">Your message</label>
+                                    <textarea name="" id=""
+                                        class="w-150 h-25 max-h-40 min-h-25 border rounded-md"></textarea>
+                                </div>
+                                <button
+                                    class="border w-150 mx-5 text-center mt-6 h-10 rounded-md cursor-pointer p-2 bg-indigo-400">
+                                    Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 bg-gray-200 p-3">
+                        <div class="flex justify-center mt-5 mb-5">
+                            <h1 class="text-2xl font-bold">Let's Discuss Your Projects</h1>
+                        </div>
+                        <div class="flex justify-center gap-10">
+                            <div class="shadow-lg mb-5 p-5 bg-gray-100 rounded-md flex">
+                                <div class="h-10 bg-stone-300 p-2 rounded-md w-fit">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h1 class="font-bold mx-5">Phone</h1>
+                                    <p>+63 9107306379</p>
+                                </div>
+                            </div>
+                            <div class="shadow-lg mb-5 p-5 bg-gray-100 rounded-md flex">
+                                <div class="h-10 bg-stone-300 p-2 rounded-md w-fit">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h1 class="font-bold mx-5">Email</h1>
+                                    <p>apriljeannojaalbolote@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="shadow-lg mb-5 p-5 bg-gray-100 rounded-md flex">
+                                <div class="h-10 bg-stone-300 p-2 rounded-md w-fit">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h1 class="font-bold mx-5">Visit my Studio</h1>
+                                    <p>kapalong Davao Del Norte</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer>
+                            <div>
+                                <hr class="mt-10">
+                            </div>
+                            <div class="flex text-2xl gap-3 bg-gray-200 h-10">
+                                <div>
+                                    <i class="fa-brands fa-facebook-f  rounded-md"></i>
+                                </div>
+                                <div>
+                                    <i class="fa-brands fa-facebook-messenger  rounded-md"></i>
+                                </div>
+                                <div>
+                                    <i class="fa-brands fa-square-instagram  rounded-md"></i>
+                                </div>
+                                <div>
+                                    <i class="fa-brands fa-whatsapp  rounded-md"></i>
+                                </div>
+                                <div>
+                                    <i class="fa-brands fa-twitter  rounded-md"></i>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+
+                </main>
+            </section>
+        </section>
+        <script>
+            Vue.createApp({
+                data() {
+
+                    return {
+                        showLoginForm: false,
+                        showAll: false,
+                        reminder: true,
+
+                        username: '',
+                        password: '',
+                    }
+                },
+                methods: {
+                    loginBtn() {
+                        this.showLoginForm = true;
+
+                    },
+                    hideButton() {
+                        this.showLoginForm = false;
+                    },
+                    confirmLogin() {
+                        if (this.username === 'april' && this.password === 'jean') {
+                            this.showAll = true;
+                            this.showLoginForm = false;
+                            this.reminder = false;
+                        } else {
+                            alert(`Incorrect username or password`)
+                            this.username = '';
+                            this.password = '';
+                        }
+                    },
+                    logoutBtn() {
+                        this.showAll = false;
+                        this.reminder = true;
+                        this.username = '';
+                        this.password = ''
+                    }
+                }
+            }).mount('#app');
+        </script>
+    </div>
+
+</body>
+
+</html>

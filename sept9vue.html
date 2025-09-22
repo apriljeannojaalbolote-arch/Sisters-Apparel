@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>septvue9</title>
+</head>
+
+<body class="flex justify-center items-center h-screen bg-gray-200">
+    <div id="app">
+        <div class="flex justify-center mt-5">
+            <div class=" flex text-white w-120 text-center">
+                <div class="py-10 bg-amber-100 border border-gray-100 w-100 rounded-xl shadow-lg mt-3">
+                    <h1 class="text-2xl p-2 mb-5 text-stone-600 font-bold">List of Geo's Students</h1>
+                    <ul id="Students-list" class="space-y-3">
+                        <li v-for="name in names" class="flex px-5 mx-[2rem] bg-gray-100 text-xl py-2 text-gray-600 shadow-lg cursor-pointer font-normal rounded-md">
+                            <span><img src="https://i.pinimg.com/736x/b4/9a/33/b49a33bc0948bd8b96ec6d08e2537d90.jpg" alt="" class="w-10 h-10 ml-5 mr-3 shadow-lg"></span>{{name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="mt-5 space-x-5 mx-5">
+                <input v-model="newNames" type="text" name="newNames" id="newNames" placeholder="Student Name" class="px-10 py-2 shadow-lg font-semibold bg-indigo-300 rounded-md ">
+                <button @click="addNames" class="shadow-lg px-8 py-2 bg-green-300 font-bold rounded-md hover:cursor-pointer">add</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    names: ["Moneygym", "kay", "Bernabe", "BenLuis"],
+                    newNames: '',
+                    
+                }
+            },
+            methods: {
+                addNames(){
+            if (this.newNames !== ''){
+                this.names.push(this.newNames);
+                this.newNames = '';
+            }
+                }
+            }
+        }).mount('#app');
+
+    </script>
+</body>
+
+</html>

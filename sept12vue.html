@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>studentvue</title>
+</head>
+
+<body class="bg-gray-200">
+    <div id="app">
+        <div class="flex justify-center mt-25 grid-cols-2 gap-3">
+            <div class="w-100 h-90 bg-gray-300 shadow-lg p-3 rounded-md">
+                <h1 class="flex justify-center mt-3 font-semibold">geo's chicken</h1>
+                <div v-for="(student, index) in students" class="flex cursor-pointer">
+                    <input v-model="selected" type="checkbox" class="cursor-pointer" :value="student">
+                    <p :class="{'line-through text-gray-500': selected.includes(student)}">{{index + 1}}. {{student}}</p>
+                </div>
+
+                <div class="flex p-2 gap-3 mt-4">
+                    <div>
+                        <label for="name"></label>
+                        <input v-model="newNames" type="text" name="name" id="name" placeholder="Enter new Student"
+                            class="w-50 h-7 border bg-gray-100 cursor-pointer">
+                    </div>
+                    <div>
+                        <label for="name"></label>
+                        <button  @click="addNames" type="text" name="name" id="name"
+                            class="w-30 h-8 border rounded-md cursor-pointer">Add students</button>
+                    </div>
+                </div>
+
+                <div>
+                    <button @click="transferTheItem"
+                        class="shadow-lg text-center bg-gray-400 cursor-pointer w-90 h-9 p-3 rounded-md mt-8">Add
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- ika duha nga box -->
+            <div class="mt-15">
+                <div class="shadow-lg w-80 h-30 bg-blue-100 rounded-md p-3">{{transferNewItem.toString()}}</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    students: [
+                        "Jim",
+                        "Bern",
+                        "Ben",
+                        "crismer",
+                        "aivegen",
+                        "april",
+                        "rosemae",
+                    ],
+                    selected: [],
+                    transferNewItem: [],
+                    newNames: '',
+                }
+            },
+            methods: {
+                transferTheItem() {
+                    this.transferNewItem.push(this.selected);
+                    console.log(this.transferNewItem)
+                },
+                addNames() {
+                    if (this.newNames !== '') {
+                        this.students.push(this.newNames);
+                        this.newNames = '';
+                    }
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>
