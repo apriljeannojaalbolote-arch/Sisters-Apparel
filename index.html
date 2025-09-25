@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>project</title>
+    <style>
+        nav {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .head-nav {
+            font-family: 'Times New Roman', Times, serif
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="flex fixed z-6 justify-center w-full bg-fuchsia-50 border border-gray-200 h-30 gap-5">
+        <img src="logo-no-bg.png" alt="" class="w-30 h-30 absolute left-20">
+        <h1
+            class="head-nav mt-10 font-thin tracking-[0.17em] text-sm lg:text-2xl md:text-lg cursor-pointer">
+            <a href="#">HOME</a>
+        </h1>
+        <h1
+            class="head-nav mt-10 font-thin tracking-[0.17em] text-sm lg:text-2xl md:text-lg cursor-pointer">
+            <a href="#collections">COLLECTIONS</a>
+        </h1>
+        <h1
+            class="head-nav mt-10 font-thin tracking-[0.17em] text-sm lg:text-2xl md:text-lg cursor-pointer">
+            <a href="#feature">FEATURE</a>
+        </h1>
+        <h1
+            class="head-nav mt-10 font-thin tracking-[0.17em] text-sm lg:text-2xl md:text-lg cursor-pointer">
+            <a href="#contact">CONTACT</a>
+        </h1>
+    </nav>
+
+    <section>
+        <div class="bg-[url(ftr1.jpg)] bg-cover bg-center lg:min-w-full md:min-w-400 min-w-300 h-screen absolute z-1 brightness-60">
+        </div>
+        <div class="relative z-5 text-fuchsia-50 pt-80 lg:min-w-full md:min-w-400 min-w-300">
+            <div class="text-center md:w-355 md:ml-0 md:text-lg md:flex-col md:flex md:full lg:w-full md:ml-20 lg:ml-0">
+                <h2 class="text-6xl md:text-5xl lg:text-6xl font-sans font-semibold mb-10 md:w-full lg:w-full">
+                    ELEVATE YOUR EVERYDAY LOOK</h2>
+                <div class="flex justify-center mt-45 w-full">
+                    <h2
+                        class="text-4xl font-sans md:absolute font-thin border rounded-md px-10 py-2 hover:text-black hover:bg-fuchsia-50 cursor-pointer duration-300 ease-in-out">
+                        MORE <span><i
+                                class="fa-solid text-lg absolute mt-[15px] font-lighter animate-bounce  fa-arrow-down"></i></span>
+                    </h2>
+                </div>
+            </div>
+            <div id="collections" class="mt-90 text-black flex justify-center mx-20 mb-10 pt-40">
+                <div>
+                    <p class="text-3xl font-thin font-sans tracking-[3px]">COLLECTIONS</p>
+                    <div class="flex justify-center">
+                        <hr class="mt-5 w-40 border-[1px] border-gray-200">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="lg:min-w-full md:min-w-400 min-w-300 lg:mx-10 md:mx-10 mx-10">
+        <!-- services section2 -->
+        <main>
+            <div>
+                <div class="flex justify-center">
+                    <!-- <h1 class="mt-25 text-3xl">PRODUCTS</h1> -->
+                </div>
+                <div class="flex justify-center gap-15 mt-10">
+                    <div>
+                        <h1 class="text-2xl font-semibold">Clothes: <span class="text-2xl font-thin">Trendy outfits for
+                                all
+                                ocassions.</span></h1>
+                        <h1 class="mt-10 text-2xl font-semibold">Quality Clothes:<span class="text-2xl font-thin">
+                                Comfortable
+                                fabrics, and
+                                stylish
+                                designs.</span></h1>
+                        <h1 class="mt-10 text-2xl font-semibold">Affordable Price: <span
+                                class="text-2xl font-thin">Fashion
+                                on
+                                a budget.</span></h1>
+                        <h1 class="mt-10 text-2xl font-semibold">Wallet: <span class="text-2xl font-thin">Stylish
+                                wallets
+                                for
+                                you.</span></h1>
+                        <h1 class="mt-10 text-2xl font-semibold">Headband: <span class="text-2xl font-thin">Add a cute
+                                touch
+                                and keep hair out of your face <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp; &nbsp; with stylish head bands.</span></h1>
+                        </h1>
+                        <h1 class="mt-10 text-2xl font-semibold">Perfume: <span class="text-2xl font-thin">Smell amazing
+                                with
+                                our selection of perfumes <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                for day or night.</span></h1>
+                        <h1 class="mt-10 text-2xl font-semibold">Weekly Updates: <span class="text-2xl font-thin">New
+                                arrivals to keep your look fresh.</span></h1>
+                    </div>
+
+                    <div>
+                        <h1 class="text-2xl font-semibold">Sandals: <span class="text-2xl font-thin">Comfortable and
+                                chic
+                                sandals.</span> </h1>
+                        <h1 class="mt-10 text-2xl font-semibold">Bags: <span class="text-2xl font-thin">Bags to complete
+                                your
+                                look.</span></h1>
+                        <h1 class="mt-10 text-2xl font-semibold">Beauty Products: <span class="text-2xl font-thin">
+                                Curated
+                                beauty products for
+                                your routine.</span></h1>
+                        <h1 class="mt-10 text-2xl font-semibold">Sunglasses: <span class="text-2xl font-thin"> Add
+                                shades
+                                for a
+                                cool, stylish vibe.</span>
+                        </h1>
+                        <h1 class="mt-10 text-2xl font-semibold">Earrings: <span class="text-2xl font-thin"> Add some
+                                sparkle
+                                and style with our earrings.</span>
+                        </h1>
+                        <h1 class="mt-15 text-2xl font-semibold">Lipstick: <span class="text-2xl font-thin">Add a pop of
+                                color
+                                and glam to your look <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; with our
+                                lipstick picks.</span>
+                        </h1>
+                        <h1 class="mt-15 text-2xl font-semibold">Necklace: <span class="text-2xl font-thin">Add some
+                                sparkle and style to your oufit <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp; with our necklace picks.</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- featured product -->
+    <div class="lg:min-w-full md:min-w-400 min-w-300">
+
+
+        <main class="bg-gray-100 pb-30">
+            <div id="feature" class="flex justify-center my-35 pt-30">
+                <div>
+                    <h1 class="text-3xl mt-5 font-thin font-sans tracking-[3px]">FEATURED PRODUCTS</h1>
+                    <div class="flex justify-center">
+                        <hr class="mt-5 w-40 border-[1px] border-gray-300">
+                    </div>
+                </div>
+            </div>
+            <div class="columns-2 flex justify-center gap-5 mt-15">
+                <!-- column 1 -->
+                <div class="space-y-5">
+                    <div>
+                        <img src="img5.jpg" alt="" class="rounded-md">
+                    </div>
+                    <div>
+                        <img src="img6.jpg" alt="" class="rounded-md">
+                    </div>
+                    <div>
+                        <img src="img10.jpg" alt="" class="rounded-md mt-5">
+                    </div>
+                    <div>
+                        <img src="img17.jpg" alt="" class="rounded-md mt-5">
+                    </div>
+                    <div>
+                        <img src="img13.jpg" alt="" class="rounded-md mt-5">
+                    </div>
+                </div>
+                <!-- column 2 -->
+                <div>
+                    <div>
+                        <img src="img4.jpg" alt="" class="rounded-md">
+                    </div>
+                    <div>
+                        <img src="img8.jpg" alt="" class="rounded-md mt-3">
+                    </div>
+                    <div>
+                        <img src="img9.jpg" alt="" class="rounded-md mt-5">
+                    </div>
+                    <div>
+                        <img src="img12.jpg" alt="" class="rounded-md mt-5">
+                    </div>
+                    <div>
+                        <img src="img14.jpg" alt="" class="rounded-md mt-5">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- second option nga footer -->
+
+    <main class="bg-fuchsia-50 lg:min-w-full md:min-w-400 min-w-300">
+        <div id="contact" class="pb-20 ">
+            <div>
+                <div class=" pt-30 flex justify-center">
+                    <h1 class="text-3xl font-thin font-sans tracking-[3px]">CONTACT</h1>
+                </div>
+                <div class="flex justify-center">
+                    <div>
+                        <hr class="mt-5 w-25 border-[1px] border-gray-300">
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-start mt-10 mx-20">
+                <div class="text-3xl font-thin font-sans w-100">
+                    <h1>Social Media</h1>
+                    <div class="flex mt-5 gap-5 text-3xl">
+                        <i class="fa-brands fa-facebook text-blue-600"></i>
+                        <i class="fa-brands fa-facebook-messenger text-blue-600"></i>
+                        <!-- <i class="fa-brands fa-instagram text-pink-600"></i>
+                        <i class="fa-brands fa-whatsapp text-green-600"></i> -->
+                    </div>
+                    <p class="mt-10 text-[20px]">Photos used with permission from <a href="https://unsplash.com/"
+                            class="font-semibold text-sky-700">unsplash</a> </p>
+                </div>
+                <div class="flex justify-center mx-50 mt-2">
+                    <div>
+                        <h1 class="text-3xl font-thin font-sans">Get in Touch</h1>
+                        <!-- <div class="mt-5">
+                            <h1 class="font-semibold text-2xl">Name: <span class="font-thin text-2xl">Sisters
+                                    Apparrel</span></h1>
+                        </div> -->
+                        <div class="mt-5">
+                            <h1 class="font-semibold text-2xl"><i class="fa-solid fa-phone"></i> <span
+                                    class="font-thin text-2xl tracking-[1px]">09350146078</span>
+                            </h1>
+                        </div>
+                        <div class="mt-5 mb-5 flex w-100">
+                            <h1 class="font-semibold text-2xl"><i class="fa-solid fa-envelope"></i> <span
+                                    class="font-thin text-2xl">sistersbeautyapparrel@gmail.com</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center w-full">
+                    <div class="font-thin text-3xl">
+                        <h1>Where we are</h1>
+                        <div class="mt-5">
+                            <h1 class="font-semibold text-2xl"><i class="fa-solid fa-map-location-dot"></i> <span
+                                    class="font-thin text-2xl">Prk5 Leonardia
+                                    bldg.Door#4 <br> &nbsp; &nbsp; &nbsp; San Miguel Tagum City</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
